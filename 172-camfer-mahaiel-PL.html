@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamfer Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .buttons {
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="printTable()">Print Table</button>
+        <button onclick="copyTable()">Copy Table</button>
+    </div>
+
+    <table id="chamferTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Code</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>SM1-PLN-CVL-0052</td>
+                <td>All exposed edges of concrete shall be 20*20 mm chamfer.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>SM1-PLN-CVL-0101</td>
+                <td>20*20 mm chamfer for all exposed edges @ VENT STATION-1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>SM1-PLN-CVL-0125</td>
+                <td>All exposed edges of concrete shall be 20*20 mm chamfer.@WASHOUT DRAIN STATION-1 (7+777kp)</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>SM1-PLN-CVL-0161</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION-1 (7+777kp)</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>SM1-PLN-CVL-0191</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>SM1-PLN-CVL-0220</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>SM1-PLN-CVL-0246</td>
+                <td>All exposed edges of concrete shall be 20*20 mm chamfer. @WASHOUT DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>SM1-PLN-CVL-0290</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>SM1-PLN-CVL-0319</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>SM1-PLN-CVL-0348</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>SM1-PLN-CVL-0384</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>SM1-PLN-CVL-0413</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>SM1-PLN-CVL-0449</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>SM1-PLN-CVL-0478</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>SM1-PLN-CVL-0514</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>SM1-PLN-CVL-0543</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>SM1-PLN-CVL-0573</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>SM1-PLN-CVL-0609</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>SM1-PLN-CVL-0638</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>SM1-PLN-CVL-0674</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>SM1-PLN-CVL-0709</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>SM1-PLN-CVL-0738</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>SM1-PLN-CVL-0768</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>SM1-PLN-CVL-0798</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>SM1-PLN-CVL-0834</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>SM1-PLN-CVL-0869</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>SM1-PLN-CVL-0898</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>SM1-PLN-CVL-0934</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>SM1-PLN-CVL-0969</td>
+                <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>SM1-PLN-CVL-0998</td>
+                <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+            </tr>
+       
+                        <tr>
+                            <td>31</td>
+                            <td>SM1-PLN-CVL-1034</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td>SM1-PLN-CVL-1063</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>SM1-PLN-CVL-1089</td>
+                            <td>All exposed edges of concrete shall be 20*20 mm chamfer. @WASHOUT DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>SM1-PLN-CVL-1126</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>SM1-PLN-CVL-1156</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>36</td>
+                            <td>SM1-PLN-CVL-1192</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>37</td>
+                            <td>SM1-PLN-CVL-1221</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>38</td>
+                            <td>SM1-PLN-CVL-1257</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>39</td>
+                            <td>SM1-PLN-CVL-1286</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>40</td>
+                            <td>SM1-PLN-CVL-1322</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>41</td>
+                            <td>SM1-PLN-CVL-1351</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td>SM1-PLN-CVL-1381</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>43</td>
+                            <td>SM1-PLN-CVL-1411</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>44</td>
+                            <td>SM1-PLN-CVL-1441</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>45</td>
+                            <td>SM1-PLN-CVL-1477</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>46</td>
+                            <td>SM1-PLN-CVL-1512</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>47</td>
+                            <td>SM1-PLN-CVL-1541</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>48</td>
+                            <td>SM1-PLN-CVL-1571</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>49</td>
+                            <td>SM1-PLN-CVL-1608</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>SM1-PLN-CVL-1637</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>51</td>
+                            <td>SM1-PLN-CVL-1667</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>52</td>
+                            <td>SM1-PLN-CVL-1707</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>53</td>
+                            <td>SM1-PLN-CVL-1746</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>54</td>
+                            <td>SM1-PLN-CVL-1775</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>55</td>
+                            <td>SM1-PLN-CVL-1811</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>56</td>
+                            <td>SM1-PLN-CVL-1846</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>57</td>
+                            <td>SM1-PLN-CVL-1875</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>58</td>
+                            <td>SM1-PLN-CVL-1911</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>59</td>
+                            <td>SM1-PLN-CVL-1940</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>60</td>
+                            <td>SM1-PLN-CVL-1976</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>61</td>
+                            <td>SM1-PLN-CVL-2005</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+
+                        <tr>
+                            <td>92</td>
+                            <td>SM1-PLN-CVL-3034</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>93</td>
+                            <td>SM1-PLN-CVL-3069</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>94</td>
+                            <td>SM1-PLN-CVL-3098</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>95</td>
+                            <td>SM1-PLN-CVL-3133</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>96</td>
+                            <td>SM1-PLN-CVL-3162</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>97</td>
+                            <td>SM1-PLN-CVL-3197</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>98</td>
+                            <td>SM1-PLN-CVL-3226</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>99</td>
+                            <td>SM1-PLN-CVL-3251</td>
+                            <td>All exposed edges of concrete shall be 20*20 mm chamfer. @WASHOUT DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>SM1-PLN-CVL-3288</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>101</td>
+                            <td>SM1-PLN-CVL-3323</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>SM1-PLN-CVL-3358</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>103</td>
+                            <td>SM1-PLN-CVL-3393</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>104</td>
+                            <td>SM1-PLN-CVL-3428</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>105</td>
+                            <td>SM1-PLN-CVL-3457</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>106</td>
+                            <td>SM1-PLN-CVL-3492</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>107</td>
+                            <td>SM1-PLN-CVL-3521</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>108</td>
+                            <td>SM1-PLN-CVL-3550</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>109</td>
+                            <td>SM1-PLN-CVL-3579</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>110</td>
+                            <td>SM1-PLN-CVL-3614</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>111</td>
+                            <td>SM1-PLN-CVL-3643</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>112</td>
+                            <td>SM1-PLN-CVL-3678</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>113</td>
+                            <td>SM1-PLN-CVL-3707</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>114</td>
+                            <td>SM1-PLN-CVL-3737</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>115</td>
+                            <td>SM1-PLN-CVL-3767</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>116</td>
+                            <td>SM1-PLN-CVL-3802</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>117</td>
+                            <td>SM1-PLN-CVL-3837</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>118</td>
+                            <td>SM1-PLN-CVL-3870</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>119</td>
+                            <td>SM1-PLN-CVL-3905</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>120</td>
+                            <td>SM1-PLN-CVL-3938</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>121</td>
+                            <td>SM1-PLN-CVL-3973</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>122</td>
+                            <td>SM1-PLN-CVL-4012</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>153</td>
+                            <td>SM1-PLN-CVL-5006</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>154</td>
+                            <td>SM1-PLN-CVL-5042</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>155</td>
+                            <td>SM1-PLN-CVL-5071</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>156</td>
+                            <td>SM1-PLN-CVL-5107</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>157</td>
+                            <td>SM1-PLN-CVL-5136</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>158</td>
+                            <td>SM1-PLN-CVL-5166</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>159</td>
+                            <td>SM1-PLN-CVL-5196</td>
+                            <td>20*20 mm chamfer for all exposed edges @VENT STATION</td>
+                        </tr>
+                        <tr>
+                            <td>160</td>
+                            <td>SM1-PLN-CVL-5232</td>
+                            <td>20*20 mm chamfer for all exposed edges @DRAIN STATION</td>
+                        </tr>
+                        <tr>
+                            <td>161</td>
+                            <td>SM1-PLN-CVL-5288</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>162</td>
+                            <td>SM1-PLN-CVL-5333</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>163</td>
+                            <td>SM1-PLN-CVL-5370</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>164</td>
+                            <td>SM1-PLN-CVL-5400</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>165</td>
+                            <td>SM1-PLN-CVL-5436</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>166</td>
+                            <td>SM1-PLN-CVL-5481</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>167</td>
+                            <td>SM1-PLN-CVL-5515</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>168</td>
+                            <td>SM1-PLN-CVL-5549</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>169</td>
+                            <td>SM1-PLN-CVL-5583</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>170</td>
+                            <td>SM1-PLN-CVL-5617</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>171</td>
+                            <td>SM1-PLN-CVL-5651</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                        <tr>
+                            <td>172</td>
+                            <td>SM1-PLN-CVL-5686</td>
+                            <td>20*20 mm chamfer for all exposed edges</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <script>
+                    function printTable() {
+                        const printContents = document.getElementById('chamferTable').outerHTML;
+                        const originalContents = document.body.innerHTML;
+                        document.body.innerHTML = printContents;
+                        window.print();
+                        document.body.innerHTML = originalContents;
+                    }
+            
+                    function copyTable() {
+                        const table = document.getElementById('chamferTable');
+                        const range = document.createRange();
+                        range.selectNode(table);
+                        const selection = window.getSelection();
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+                        try {
+                            document.execCommand('copy');
+                            alert('Table copied to clipboard!');
+                        } catch (err) {
+                            alert('Failed to copy table.');
+                        }
+                        selection.removeAllRanges();
+                    }
+                </script>
+            </body>
+            </html>            
